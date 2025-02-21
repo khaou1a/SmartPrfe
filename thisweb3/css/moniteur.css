@@ -1,0 +1,137 @@
+
+/* Infusion Status Section Styles */
+.infusion-status {
+    width: 100%;
+    padding: 40px 5%;
+    background-color: #fff;
+    min-height: 80vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.infusion-status h1 {
+    font-size: 2.2rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 50px;
+    color: #000;
+}
+
+.metrics-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 50px;
+    flex-wrap: wrap;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.metric-box {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 30px rgba(0, 0, 0, 0.13);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Progress Ring Styles */
+.progress-ring {
+    position: relative;
+    width: 120px;
+    height: 120px;
+}
+
+.progress-circle {
+    width: 120px;
+    height: 120px;
+    transform: rotate(-90deg);
+}
+
+.progress-background {
+    fill: none;
+    stroke: #e2e2e2;
+    stroke-width: 8;
+}
+
+.progress-bar {
+    fill: none;
+    stroke-width: 8;
+    stroke-linecap: round;
+    transition: stroke-dashoffset 0.6s ease-in-out;
+}
+
+/* Progress Bar Colors */
+.light-blue {
+    stroke: #00C4CC;
+}
+
+.dark-blue {
+    stroke: #0066CC;
+}
+
+.red {
+    stroke: #FF4444;
+}
+
+/* Set up circular progress */
+.progress-bar {
+    stroke-dasharray: 339.292; /* 2 * π * 54 (radius) */
+}
+
+/* Calculate stroke-dashoffset based on percentage */
+.progress-bar[data-percent="80"] {
+    stroke-dashoffset: 67.8584; /* (100 - 80) * 339.292 / 100 */
+}
+
+.progress-bar[data-percent="60"] {
+    stroke-dashoffset: 135.7168; /* (100 - 60) * 339.292 / 100 */
+}
+
+/* Progress Text Styles */
+.progress-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.progress-text .value {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #000;
+}
+
+.progress-text .label {
+    display: block;
+    font-size: 0.9rem;
+    color: #4b4b4b;
+    margin-top: 5px;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 768px) {
+    .metrics-container {
+        gap: 30px;
+    }
+
+    .metric-box {
+        width: calc(50% - 15px);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .metric-box {
+        width: 100%;
+    }
+
+    .infusion-status h1 {
+        font-size: 1.8rem;
+    }
+}
